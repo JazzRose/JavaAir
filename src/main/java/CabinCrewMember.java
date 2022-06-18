@@ -5,4 +5,7 @@ public class CabinCrewMember extends Staff{
     }
 
 
+    public String speakOnIntercom() {
+        return "Sir, This is a Wendy's";
+    }
 }

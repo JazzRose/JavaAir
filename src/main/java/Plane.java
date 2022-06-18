@@ -1,6 +1,7 @@
 public class Plane {
 
     private Type type;
+    private FlightManager flightManager;
 
     public Plane(Type type) {
         this.type = type;
@@ -21,4 +22,5 @@ public class Plane {
     public int getPlaneCapacity() {
         return this.type.getCapacity();
     }
+
 }

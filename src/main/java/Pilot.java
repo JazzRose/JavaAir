@@ -6,4 +6,12 @@ public class Pilot extends Staff{
         super(name, rank);
         this.licenseNumber = licenseNumber;
     }
+
+    public String getLicenseNumber() {
+        return this.licenseNumber;
+    }
+
+    public String flyPlane() {
+        return "Whooooooo I'm flying!";
+    }
 }

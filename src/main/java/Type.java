@@ -4,6 +4,7 @@ public enum Type {
     AIRBUS_350(300, 150000),
     EMBRAER_EJET(200, 120000),
     ANOTOV_AN24(100, 100000),
+    TEENY_PLANE(2,2000)
     ;
 
     private final int capacity;
