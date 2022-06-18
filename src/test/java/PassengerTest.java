@@ -42,4 +42,10 @@ public class PassengerTest {
         myFlight.bookInPassenger(neil,myFlight);
         assertNotEquals(0, neil.getSeatNumber());
     }
+
+    @Test
+    public void passengerRepeatedSeat(){
+        myFlight.bookInPassenger(neil,myFlight);
+        assertNotEquals(0, neil.getSeatNumber());
+    }
 }

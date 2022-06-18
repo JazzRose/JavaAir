@@ -38,10 +38,12 @@ public class Passenger {
 
     public void setSeatNumber() {
         int capacity = flight.getPlaneCapacity();
-        double seatAllocation = Math.random()*(capacity + 1);
-        this.seatNumber = (int)seatAllocation;
-        for (Passenger passenger: flight.getPassengers())
-            if (seatNumber == passenger.seatNumber)
-                setSeatNumber();
+//        if (this.seatNumber == 0);
+            double seatAllocation = Math.random()*(capacity + 1);
+            this.seatNumber = (int)seatAllocation;
+//            for (Passenger passenger: flight.getPassengers())
+//                if (seatNumber == passenger.seatNumber)
+//                    seatNumber = 0;
+//                    setSeatNumber();
     }
 }
