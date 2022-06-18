@@ -1,16 +1,19 @@
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Flight {
 
+    private Flight flight;
     private Pilot pilot;
     private ArrayList<CabinCrewMember> cabinCrewMembers;
     private ArrayList<Passenger> passengers;
-    private Plane plane;
+    protected Plane plane;
     private String flightNumber;
     private Location destination;
     private Location departure;
     private String departureTime;
-    private FlightManager flightManager;
+
 
 
     public Flight(Pilot pilot,Plane plane, String flightNumber, Location destination, Location departure, String departureTime) {
@@ -24,8 +27,41 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
+
     public int getPlaneCapacity() {
         return this.plane.getPlaneCapacity();
+    }
+
+    public Pilot getPilot() {
+        return pilot;
+    }
+
+    public ArrayList<CabinCrewMember> getCabinCrewMembers() {
+        return cabinCrewMembers;
+    }
+
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public Plane getPlane() {
+        return plane;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public Location getDestination() {
+        return destination;
+    }
+
+    public Location getDeparture() {
+        return departure;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
     }
 
     public int getPlaneWeight() {
@@ -52,17 +88,35 @@ public class Flight {
         return passengers.size();
     }
 
-    public void bookInPassenger(Passenger passenger) {
+    public void bookInPassenger(Passenger passenger, Flight flight) {
         if (getRemainingSeatCount() > 0)
         passengers.add(passenger);
+        passenger.setFlight(flight);
     }
 
     public int getRemainingSeatCount() {
         return plane.getPlaneCapacity() - passengers.size();
     }
 
-    public double flightBaggageWeightPerPerson() {
-        return flightManager.baggageWeightPerPassenger();
+    public double reservedBagWeight(){
+        return plane.getPlaneWeight()/2;
+    }
+
+    public double baggageWeightPerPassenger(){
+        return reservedBagWeight() / plane.getPlaneCapacity();
+    }
+
+    public double bookedInBagsWeight() {
+        int totalBags = 0;
+        for (Passenger passenger : passengers) {
+            int passengerBags = passenger.getNumberOfBags();
+                    totalBags += passengerBags;
+        }
+        return this.baggageWeightPerPassenger() * totalBags;
+    }
+
+    public double remainingBagsWeight() {
+        return reservedBagWeight()-bookedInBagsWeight();
     }
 }
 
