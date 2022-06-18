@@ -66,31 +66,31 @@ public class FlightTest {
     }
 
     @Test
-    public void canBookIntoFlight(Flight myFlight) {
+    public void canBookIntoFlight() {
         myFlight.bookInPassenger(neil, myFlight);
         assertEquals(1, myFlight.getPassengerCount());
     }
 
     @Test
     public void getAvailableSeats() {
-        smallFlight.bookInPassenger(neil,myFlight);
+        smallFlight.bookInPassenger(neil, myFlight);
         assertEquals(1, smallFlight.getRemainingSeatCount());
 
     }
 
     @Test
     public void getAvailableSeatsPlaneFull() {
-        smallFlight.bookInPassenger(neil,myFlight);
-        smallFlight.bookInPassenger(vicki,myFlight);
+        smallFlight.bookInPassenger(neil, myFlight);
+        smallFlight.bookInPassenger(vicki, myFlight);
         assertEquals(0, smallFlight.getRemainingSeatCount());
 
     }
 
     @Test
     public void tooManyForFlight() {
-        smallFlight.bookInPassenger(neil,myFlight);
-        smallFlight.bookInPassenger(lucy,myFlight);
-        smallFlight.bookInPassenger(vicki,myFlight);
+        smallFlight.bookInPassenger(neil, myFlight);
+        smallFlight.bookInPassenger(lucy, myFlight);
+        smallFlight.bookInPassenger(vicki, myFlight);
         assertEquals(2, smallFlight.getPassengerCount());
     }
 

@@ -92,6 +92,7 @@ public class Flight {
         if (getRemainingSeatCount() > 0)
         passengers.add(passenger);
         passenger.setFlight(flight);
+        passenger.setSeatNumber();
     }
 
     public int getRemainingSeatCount() {

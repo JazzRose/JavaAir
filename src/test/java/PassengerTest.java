@@ -33,7 +33,13 @@ public class PassengerTest {
     @Test
     public void canSetFlight() {
         myFlight.bookInPassenger(neil,myFlight);
+        System.out.println(myFlight.getPassengers());
         assertEquals(Location.BKK, neil.getPassengerFlightDestination());
+    }
 
+    @Test
+    public void passengerAllocatedSeat(){
+        myFlight.bookInPassenger(neil,myFlight);
+        assertNotEquals(0, neil.getSeatNumber());
     }
 }
